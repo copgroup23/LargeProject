@@ -1,0 +1,128 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+body {
+  background-image: linear-gradient(90deg,#a1d0ff, #dab6fc);
+  background-size: cover;
+  background-position-y: center;
+  height: 100%;
+}
+
+
+.title {
+  font-size: xx-large;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.imageAlign {
+  text-align: center;
+}
+
+.loginlabel {
+  text-align: center;
+  color: #000000;
+  font-size: 30px;
+  line-height: 38px;
+  margin-top: 20px;
+  margin-bottom: 45px;
+}
+
+.loginform {
+  box-shadow: rgba(0,0,0,0.1) 0 0 20px;
+  padding: 25px 40px;
+  border-radius: 3px;
+  width: 370px;
+  background-image: linear-gradient(#bbddff,#e6cbff,#bbddff);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-button {
+  background: rgb(0, 134, 112);
+  /* width: 100%; */
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.login-input {
+  font-size: 14px;
+  background-color: #FAFBFC;
+  border: 2px solid #DFE1E6;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 3px;
+  height: 44px;
+  -webkit-transition: background-color .2s ease-in-out 0s,border-color .2s ease-in-out 0s;
+  transition: background-color .2s ease-in-out 0s,border-color .2s ease-in-out 0s;
+  background: rgb(248, 248, 248);
+  width: 100%;
+}
+
+.login-input:focus {
+  background: white;
+}
+
+
+.divider {
+  height: 2rem;
+  border-left: 2px solid #007bff;
+  margin: 0.5rem 1rem;
+}
+
+.quizcollapse {
+  background-color: white;
+}
+
+
+.startButton {
+  background: rgb(0, 180, 0) !important;
+}
+
+.topHomeTitle {
+  padding-bottom: 0rem !important;
+}
+
+.moveLogoTitle {
+  margin-bottom: 0rem !important;
+}
