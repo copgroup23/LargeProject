@@ -4,7 +4,19 @@ import logo from '../images/clogo.png'
 
 function TopHome()
 {
-   return(
+    var user = JSON.parse(localStorage.getItem("user_data"));
+
+    const doLogout = event => 
+    {
+	    event.preventDefault();
+
+        localStorage.removeItem("user_data")
+        window.location.href = '/';
+
+    };    
+
+
+    return(
       <div>
           <Navbar bg="light" expand="lg" className="topHomeTitle">
             <Navbar.Brand href="#home" className="topHomeTitle">
@@ -23,10 +35,11 @@ function TopHome()
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
+                    <div>Hi, {user.firstName} {user.lastName}</div>
+                    <Nav.Link href="#profile">My Profile</Nav.Link>
                     <Nav.Link href="/home">Quizzes</Nav.Link>
                     <Nav.Link href="#link">Notes</Nav.Link>
-                    <Nav.Link href="#profile">My Profile</Nav.Link>
-                    <Nav.Link href="#logout">Log Out</Nav.Link>
+                    <Nav.Link onClick={doLogout} className="red">Log Out</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Navbar>

@@ -126,3 +126,7 @@ body {
 .moveLogoTitle {
   margin-bottom: 0rem !important;
 }
+
+.red {
+  color: red !important;
+}
