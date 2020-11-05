@@ -22,8 +22,7 @@ function Login()
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
 
             var res = JSON.parse(await response.text());
-
-            if( res.id <= 0 )
+            if( res.firstName === "" )
             {
                 setMessage('User/Password combination incorrect');
             }

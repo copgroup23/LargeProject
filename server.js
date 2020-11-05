@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const hashPass = require('password-hash');
 
 // const path = require("path");
 // const PORT = process.env.PORT || 5000;
@@ -27,26 +28,22 @@ app.post('/api/login', async (req, res, next) =>
 
     const db = client.db();
 
-    const results = await db.collection('Users').find({
-        UserName: login,
-        Password: password
+    const result = await db.collection('Users').find({
+        UserName: login.toLowerCase()
     }).toArray();
-
-    var id = -1;
+    
     var fn = '';
     var ln = '';
     var email = '';
 
-    if (results.length > 0)
+    if (result.length > 0 && hashPass.verify(password, result[0].Password))
     {
-        id = results[0].UserId;
-        fn = results[0].FirstName;
-        ln = results[0].LastName;
-        email = results[0].Email;
+        fn = result[0].FirstName;
+        ln = result[0].LastName;
+        email = result[0].Email;
     }
 
     var ret = {
-        id: id,
         firstName: fn,
         lastName: ln,
         Email: email,
@@ -61,12 +58,14 @@ app.post('/api/Register', async (req, res, next) =>
     var error = '';
 
     const { firstname, lastname, email, login, password } = req.body;
+    var hashedPass = hashPass.generate(password);
+
     const user = {
         FirstName: firstname,
         LastName: lastname,
         Email: email,
-        UserName: login,
-        Password: password,
+        UserName: login.toLowerCase(),
+        Password: hashedPass,
         Notes: ""
     }
 
@@ -75,7 +74,7 @@ app.post('/api/Register', async (req, res, next) =>
       const result = await db.collection('Users').insertOne(user);
     }
     catch(e) {
-      error = e.toString();
+      error = "Email/Username already in use";
     }
 
     var ret = { error: error };

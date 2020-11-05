@@ -8,6 +8,7 @@ function SignUp()
     var email;
     var userName;
     var password;
+    var confirmPass;
 
     const [message,setMessage] = useState('');
 
@@ -18,7 +19,7 @@ function SignUp()
         var flag = 0;
         var error = [];
 
-        if (firstName.value === "" || lastName.value === "" || email.value === "" || password.value === "") {
+        if (firstName.value === "" || lastName.value === "" || email.value === "" || password.value === "" || confirmPass.value === "") {
             flag = 1;
             error.push("Please fill out all fields\n");
         }
@@ -28,7 +29,13 @@ function SignUp()
             setMessage(error);
             return;
         }
-
+        
+        if(password.value !== confirmPass.value)
+        {
+            error.push("Password does not match\n");
+            setMessage(error);
+            return;
+        }
         var obj = {firstname:firstName.value, lastname:lastName.value, email:email.value, login:userName.value, password:password.value};
         var js = JSON.stringify(obj);
 
@@ -76,6 +83,9 @@ function SignUp()
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
                 <Form.Control className="login-input" type="password" placeholder="Password" ref={(c) => password = c}/>
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+                <Form.Control className="login-input" type="password" placeholder="Re-enter Password" ref={(c) => confirmPass = c}/>
             </Form.Group>
             <Button size="lg" variant="primary" type="submit" onClick={doSignUp} block>
                 Sign Up
