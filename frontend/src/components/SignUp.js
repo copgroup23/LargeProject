@@ -66,7 +66,7 @@ function SignUp()
     };
 
     return(
-    <div className>  
+    <div>  
         <Form className="loginform">
             <h3 className="loginlabel">Create An Account</h3>
             <Form.Group controlId="formBasicFirst">

@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import HomePage from './pages/HomePage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import VerifyEmailPage from './pages/VerifyEmailPage';
 
 function App() {
   return (
@@ -19,6 +21,12 @@ function App() {
       </Route>
       <Route path="/Home" exact>
         <HomePage />
+      </Route>
+      <Route path="/ForgotPassword" exact>
+        <ForgotPasswordPage />
+      </Route>
+      <Route path="/VerifyEmail" exact>
+        <VerifyEmailPage />
       </Route>
       <Redirect to="/" />
     </Switch>

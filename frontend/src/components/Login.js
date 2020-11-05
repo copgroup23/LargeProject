@@ -47,7 +47,7 @@ function Login()
     <div>  
         <Form className="loginform">
             <h3 className="loginlabel">
-                Log in
+                Log In
             </h3>
             <Form.Group controlId="formBasicEmail">
                 <Form.Control className="login-input" type="email" placeholder="username" ref={(c) => loginUserName = c}/>
