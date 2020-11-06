@@ -72,6 +72,26 @@ app.post('/api/Register', async (req, res, next) =>
     try {
       const db = client.db();
       const result = await db.collection('Users').insertOne(user);
+
+      // using Twilio SendGrid's v3 Node.js Library
+      // https://github.com/sendgrid/sendgrid-nodejs
+      const sgMail = require('@sendgrid/mail')
+      sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+      const msg = {
+        to: email, // Change to your recipient
+        from: 'letscwhatyouknow@gmail.com', // Change to your verified sender
+        subject: 'Please Verify Your Email!',
+        text: 'and easy to do anywhere, even with Node.js',
+        html: '<strong><button type="button">Click Me To Verify Account!</button></strong>',
+      }
+      sgMail
+        .send(msg)
+        .then(() => {
+          console.log('Email sent')
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     }
     catch(e) {
       error = "Email/Username already in use";
