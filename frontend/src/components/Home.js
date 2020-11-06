@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Collapse } from 'react-bootstrap';
 
+
 function Home()
 {
     const [open1, setOpen1] = useState(false);
@@ -8,10 +9,45 @@ function Home()
     const [open3, setOpen3] = useState(false);
     const [open4, setOpen4] = useState(false);
     const [open5, setOpen5] = useState(false);
+    const [message,setMessage] = useState('');
 
+    const doHome = async event => 
+    {
+        event.preventDefault();
+        const level = event.target.id;
+
+        var obj = {difficulty:level};
+        var js = JSON.stringify(obj);
+
+        try {
+            const response = await fetch('http://localhost:5000/api/findQuestions',
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+
+            var res = JSON.parse(await response.text());
+
+            if(res.length === 0)
+            {
+                setMessage("Unable to retrieve questions");
+                return;
+            }
+
+            localStorage.setItem('questions', JSON.stringify(res));
+            console.log(JSON.parse(localStorage.getItem('questions')));
+            window.location.href = '/Quiz';
+            
+        }
+        catch(e) {
+            alert(e.toString());
+            return;
+        }
+        
+    };
+
+    
     return(
        <div>
            <br></br>
+           <span id="questionSearch">{message}</span>
            <div className="col text-center">
            <Button className="quiz1 col text-center"
             onClick={() => setOpen1(!open1)}
@@ -27,7 +63,9 @@ function Home()
                 <br></br>
                 <br></br>
                 <div className="col text-center">
-                    <Button className="startButton">Start</Button>
+                    <Button id="1" className="startButton" onClick={doHome}>
+                        Start
+                    </Button>
                 </div>
                 </div> 
             </Collapse>
@@ -48,7 +86,9 @@ function Home()
                 <br></br>
                 <br></br>
                 <div className="col text-center">
-                    <Button className="startButton">Start</Button>
+                    <Button id="2" className="startButton" onClick={doHome}>
+                        Start
+                    </Button>
                 </div>
                 </div>
             </Collapse>
@@ -69,7 +109,9 @@ function Home()
                 <br></br>
                 <br></br>
                 <div className="col text-center">
-                    <Button className="startButton">Start</Button>
+                    <Button id="3" className="startButton" onClick={doHome}>
+                        Start
+                    </Button>
                 </div>
                 </div>
             </Collapse>
@@ -90,7 +132,9 @@ function Home()
                 <br></br>
                 <br></br>
                 <div className="col text-center">
-                    <Button className="startButton">Start</Button>
+                    <Button id="4" className="startButton" onClick={doHome}>
+                        Start
+                    </Button>
                 </div>
                 </div>
             </Collapse>
@@ -111,13 +155,16 @@ function Home()
                 <br></br>
                 <br></br>
                 <div className="col text-center">
-                    <Button className="startButton">Start</Button>
+                    <Button id="5" className="startButton" onClick={doHome}>
+                        Start
+                    </Button>
                 </div>
                 </div>
             </Collapse>
             <br></br>
             </div>
        </div>
+       
     );
 };
 

@@ -130,3 +130,41 @@ body {
 .red {
   color: red !important;
 }
+
+.center {
+  padding: 320px 0;
+  text-align: center;
+}
+
+.quiz {
+  background: white !important;
+  color: black !important;
+  border: white !important;
+}
+
+.quiz:focus {
+  background:rgb(127, 214, 255) !important;
+  color: white !important;
+}
+
+.option {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.quizform {
+  /* box-shadow: rgba(0,0,0,0.1) 0 0 20px; */
+  padding: 25px 40px;
+  border-radius: 3px;
+  width: 370px;
+  background-image: linear-gradient(#bbddff,#e6cbff,#bbddff);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.option-text {
+  font-size: 14px !important;
+}

@@ -81,6 +81,45 @@ app.post('/api/Register', async (req, res, next) =>
     res.status(200).json(ret);
 });
 
+app.post('/api/findQuestions', async (req, res, next) =>
+{
+    var error = '';
+    var numQuestionsToSend = 1;
+    const { difficulty } = req.body;
+    var _search = parseInt(difficulty);
+
+    try{
+      const db = client.db();
+      const results = await db.collection('Questions').find({
+          Difficulty: _search
+      }).toArray();
+      
+      var _ret = [];
+      var length = results.length;
+      
+      if(length<numQuestionsToSend)
+      {
+        error.push("Not enough questions");
+      }
+      else
+      {
+        var rand;
+        for(var i=0; i<numQuestionsToSend; i++)
+        {
+          rand = Math.floor(Math.random() * Math.floor(length));
+          _ret.push(results[rand]);
+          // console.log(_ret);
+        }
+      }
+    }
+    catch(e){
+      error=e.toString();
+    }
+    
+    // var ret = { results: _ret, error: error };
+    res.status(200).json(_ret);
+});
+
 app.use((req, res, next) => 
 {
   res.setHeader('Access-Control-Allow-Origin', '*');

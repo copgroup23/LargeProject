@@ -8,6 +8,7 @@ import SignUpPage from './pages/SignUpPage';
 import HomePage from './pages/HomePage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import VerifyEmailPage from './pages/VerifyEmailPage';
+import QuizPage from './pages/QuizPage';
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
       </Route>
       <Route path="/VerifyEmail" exact>
         <VerifyEmailPage />
+      </Route>
+      <Route path="/Quiz" exact>
+        <QuizPage />
       </Route>
       <Redirect to="/" />
     </Switch>
