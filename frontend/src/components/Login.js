@@ -26,6 +26,10 @@ function Login()
             {
                 setMessage('User/Password combination incorrect');
             }
+            else if(!res.Validated)
+            {
+                setMessage('Check your email for verifying account');
+            }
             else
             {
                 var user = {firstName:res.firstName,lastName:res.lastName,id:res.id}

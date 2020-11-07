@@ -35,18 +35,21 @@ app.post('/api/login', async (req, res, next) =>
     var fn = '';
     var ln = '';
     var email = '';
+    var valid = false;
 
     if (result.length > 0 && hashPass.verify(password, result[0].Password))
     {
         fn = result[0].FirstName;
         ln = result[0].LastName;
         email = result[0].Email;
+        valid = result[0].Validated;
     }
 
     var ret = {
         firstName: fn,
         lastName: ln,
         Email: email,
+        Validated: valid,
         error: ''
     };
 
@@ -66,7 +69,8 @@ app.post('/api/Register', async (req, res, next) =>
         Email: email,
         UserName: login.toLowerCase(),
         Password: hashedPass,
-        Notes: ""
+        Notes: "",
+        Validated: false
     }
 
     try {
@@ -82,7 +86,7 @@ app.post('/api/Register', async (req, res, next) =>
         from: 'letscwhatyouknow@gmail.com', // Change to your verified sender
         subject: 'Please Verify Your Email!',
         text: 'and easy to do anywhere, even with Node.js',
-        html: '<strong><button type="button">Click Me To Verify Account!</button></strong>',
+        html: '<a href="http://localhost:3000/VerifyEmail/"<strong><button type="button">Click Me To Verify Account!</button></strong>',
       }
       sgMail
         .send(msg)
@@ -138,6 +142,55 @@ app.post('/api/findQuestions', async (req, res, next) =>
     
     // var ret = { results: _ret, error: error };
     res.status(200).json(_ret);
+});
+
+app.post('/api/verifyEmail', async (req, res, next) =>
+{
+    var error = '';
+    const { login, password } = req.body;
+    
+    const db = client.db();
+    
+    const result = await db.collection('Users').find({
+      UserName: login.toLowerCase()
+    }).toArray();
+    
+    var fn = '';
+    var ln = '';
+    var email = '';
+
+    if (result.length > 0 && hashPass.verify(password, result[0].Password))
+    {
+        fn = result[0].FirstName;
+        ln = result[0].LastName;
+        email = result[0].Email;
+
+        var query = 
+        { 
+            UserName: login
+        };
+
+        var newValues = 
+        {
+            $set:
+            {
+                Validated : true
+            }
+        };
+
+        var modify = await db.collection('Users').updateOne(query,newValues);
+    }
+
+    var ret = 
+    {
+      firstName: fn,
+      lastName: ln,
+      Email: email,
+      error: error
+    };
+    console.log(ret);
+
+    res.status(200).json(ret);
 });
 
 app.use((req, res, next) => 

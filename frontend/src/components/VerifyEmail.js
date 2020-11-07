@@ -1,19 +1,44 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Form, Button} from 'react-bootstrap';
 
 function VerifyEmail()
 {
     var loginUserName;
     var loginPassword;
-    // const [message,setMessage] = useState('');
+    const [message,setMessage] = useState('');
 
-    const doVerifyEmail = event => 
+    const doVerifyEmail = async event => 
     {
 	    event.preventDefault();
-        alert("VerifyEmail() called");
 
-        //maybe???
-        // html: "<a href=\"localhost:3000/EmailVerification/\">Verify Email</a>"
+        var obj = {login:loginUserName.value,password:loginPassword.value};
+        var js = JSON.stringify(obj);
+        
+        try
+        {    
+            const response = await fetch('http://localhost:5000/api/verifyEmail',
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+
+            var res = JSON.parse(await response.text());
+            console.log(res);
+            if( res.firstName === "" )
+            {
+                setMessage('User/Password combination incorrect');
+            }
+            else
+            {
+                var user = {firstName:res.firstName,lastName:res.lastName,id:res.id}
+                localStorage.setItem('user_data', JSON.stringify(user));
+                
+                setMessage('');
+                window.location.href = '/home';
+            }
+        }
+        catch(e)
+        {
+            alert(e.toString());
+            return;
+        }    
 
     };    
 
@@ -33,7 +58,7 @@ function VerifyEmail()
             <Button size="lg" variant="primary" type="submit" onClick={doVerifyEmail} block>
                 Verify
             </Button>
-            {/* <span id="loginResult">{message}</span> */}
+            <span id="loginResult">{message}</span>
             <hr></hr>
         </Form>
     </div>
