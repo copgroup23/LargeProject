@@ -10,7 +10,7 @@ function VerifyEmail()
     const doVerifyEmail = async event => 
     {
 	    event.preventDefault();
-
+        
         var obj = {login:loginUserName.value,password:loginPassword.value};
         var js = JSON.stringify(obj);
         
