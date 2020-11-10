@@ -32,7 +32,8 @@ function Home()
             }
 
             localStorage.setItem('questions', JSON.stringify(res));
-            console.log(JSON.parse(localStorage.getItem('questions')));
+            localStorage.setItem('current', JSON.stringify(0));
+            
             window.location.href = '/Quiz';
             
         }

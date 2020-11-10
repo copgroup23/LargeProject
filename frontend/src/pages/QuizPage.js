@@ -1,13 +1,13 @@
 import React from 'react';
 
-import SignUpPageTitle from '../components/SignUpPageTitle'
+import TopQuiz from '../components/TopQuiz';
 import Quiz from '../components/Quiz';
 
 const QuizPage = () =>
 {
     return(
         <div>
-            {/* <SignUpPageTitle /> */}
+            <TopQuiz />
             <Quiz />
         </div>
     );

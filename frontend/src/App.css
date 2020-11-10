@@ -54,6 +54,7 @@ body {
 
 .imageAlign {
   text-align: center;
+  margin-bottom: 3px;
 }
 
 .loginlabel {
@@ -142,10 +143,11 @@ body {
   border: white !important;
 }
 
-.quiz:focus {
+.quiz:hover {
   background:rgb(127, 214, 255) !important;
   color: white !important;
 }
+
 
 .option {
   display: flex !important;
@@ -167,4 +169,20 @@ body {
 
 .option-text {
   font-size: 14px !important;
+}
+
+.right {
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  padding: 10px;
+  color: red;
+}
+
+.top-right {
+  position: absolute;
+  right: 10px;
+  margin-bottom: 5px;
+  /* width: 100px; */
+  /* padding: 0px; */
 }

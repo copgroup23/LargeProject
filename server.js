@@ -108,10 +108,10 @@ app.post('/api/Register', async (req, res, next) =>
 app.post('/api/findQuestions', async (req, res, next) =>
 {
     var error = '';
-    var numQuestionsToSend = 1;
+    var numQuestionsToSend = 10;
     const { difficulty } = req.body;
     var _search = parseInt(difficulty);
-
+    var arr = [];
     try{
       const db = client.db();
       const results = await db.collection('Questions').find({
@@ -131,9 +131,14 @@ app.post('/api/findQuestions', async (req, res, next) =>
         for(var i=0; i<numQuestionsToSend; i++)
         {
           rand = Math.floor(Math.random() * Math.floor(length));
+          while(arr.indexOf(rand) != -1)
+          {
+            rand = Math.floor(Math.random() * Math.floor(length));
+          }
+          arr.push(rand);
           _ret.push(results[rand]);
-          // console.log(_ret);
         }
+        console.log(arr);
       }
     }
     catch(e){
@@ -189,6 +194,40 @@ app.post('/api/verifyEmail', async (req, res, next) =>
       error: error
     };
     console.log(ret);
+
+    res.status(200).json(ret);
+});
+
+app.post('/api/totalCorrect', async (req, res, next) =>
+{
+    var error = '';
+    var d = new Date();
+    const { level, email, total } = req.body;
+    var result;
+
+    const user = {
+      Quiz: level, 
+      Account: email,
+      Score: total,
+      Date: d
+    }
+
+    try {
+      const db = client.db();
+      result = await db.collection('History').insertOne(user);
+
+    }
+    catch(e) {
+      error = e.toString();
+    }
+
+    var ret = {
+        _id: result._id,
+        Quiz: result.Quiz,
+        Date: result.Date,
+        Score: result.Score,
+        error: ''
+    };
 
     res.status(200).json(ret);
 });
