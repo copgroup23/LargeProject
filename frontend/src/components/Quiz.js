@@ -7,6 +7,7 @@ import d from '../images/d.png';
 
 var q_number = 0;
 var totalcorrect = 0;
+var choices = [];
 
 function Quiz()
 {
@@ -41,7 +42,8 @@ function Quiz()
     const answerSelect = async event =>
     {
         event.preventDefault();
-
+        choices.push(event.target.id);
+        localStorage.setItem('choices', JSON.stringify(choices));
         console.log(q_number);
         console.log(quests[q_number]);
         if(quests[q_number].CorrectAnswer === event.target.id)
@@ -69,7 +71,7 @@ function Quiz()
     
                 // localStorage.setItem('questions', JSON.stringify(res));
                 // console.log(JSON.parse(localStorage.getItem('questions')));
-                // window.location.href = '/Quiz';
+                window.location.href = '/QuizCompleted';
                 
             }
             catch(e) {
@@ -90,6 +92,7 @@ function Quiz()
             setNumber(q_number+1);
         }
         
+
     };
 
 

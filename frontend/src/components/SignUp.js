@@ -76,7 +76,7 @@ function SignUp()
                 <Form.Control className="login-input" type="lname" placeholder="Last Name" ref={(c) => lastName = c}/>
             </Form.Group>
             <Form.Group controlId="formBasicEmailAdr">
-                <Form.Control className="login-input" type="emailadr" placeholder="Email" ref={(c) => email = c}/>
+                <Form.Control className="login-input" type="email" placeholder="Email" ref={(c) => email = c}/>
             </Form.Group>
             <Form.Group controlId="formBasicUsername">
                 <Form.Control className="login-input" type="username" placeholder="Username" ref={(c) => userName = c}/>

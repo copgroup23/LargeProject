@@ -1,20 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Form, Button} from 'react-bootstrap';
 
 function ResetPassword()
 {
-    var loginUserName;
-    var loginPassword;
-    // const [message,setMessage] = useState('');
+    var password;
+    var confirmPass;
+    const [message,setMessage] = useState('');
+    var email = localStorage.getItem("TempEmail")
 
-    const doResetPassword = event => 
+    const doResetPassword = async event => 
     {
+      
         event.preventDefault();
-        alert("ResetPassword() called");
+        var flag = 0;
+        var error = [];
 
-        //maybe???
-        // html: "<a href=\"localhost:3000/EmailVerification/\">Verify Email</a>"
+        if (password.value === "" ||confirmPass.value === "") {
+            flag = 1;
+            error.push("Please fill out all fields\n");
+        }
+        if (flag === 1)
+        {
+            setMessage(error);
+            return;
+        }
 
+        if(password.value !== confirmPass.value)
+        {
+            error.push("Password does not match\n");
+            setMessage(error);
+            return;
+        }
+        
+        var obj = {email:email, password: password.value};
+        var js = JSON.stringify(obj);
+        try
+        {    
+            const response = await fetch('http://localhost:5000/api/ResetPassword',
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+
+            var res = JSON.parse(await response.text());
+
+            if( res.error === "" )
+            {
+                setMessage("Password Reset");
+                setTimeout(() => {
+                    window.location.href = '/';
+                  },5000);
+            }
+            else
+            {
+                setMessage(res.error);
+            }
+        }
+        catch(e)
+        {
+            alert(e.toString());
+            return;
+        } 
     };    
 
 
@@ -25,15 +68,15 @@ function ResetPassword()
                  Reset Your Password
             </h3>
             <Form.Group controlId="formBasicPassword">
-                <Form.Control className="login-input" type="password" placeholder="password" ref={(c) => loginPassword = c}/>
+                <Form.Control className="login-input" type="password" placeholder="Enter new password" ref={(c) => password = c}/>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-                <Form.Control className="login-input" type="password" placeholder="Re-enter password" ref={(c) => loginPassword = c}/>
+                <Form.Control className="login-input" type="password" placeholder="Re-enter password" ref={(c) => confirmPass = c}/>
             </Form.Group>
             <Button size="lg" variant="primary" type="submit" onClick={doResetPassword} block>
                 Verify
             </Button>
-            {/* <span id="loginResult">{message}</span> */}
+            <span id="loginResult">{message}</span>
             <hr></hr>
         </Form>
     </div>

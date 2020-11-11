@@ -10,6 +10,7 @@ import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import VerifyEmailPage from './pages/VerifyEmailPage';
 import QuizPage from './pages/QuizPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
+import QuizCompletedPage from './pages/QuizCompletedPage';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
       </Route>
         <Route path="/ResetPassword" exact>
         <ResetPasswordPage />
+      </Route>
+        <Route path="/QuizCompleted" exact>
+        <QuizCompletedPage />
       </Route>
       <Redirect to="/" />
     </Switch>

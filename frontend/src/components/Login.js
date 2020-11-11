@@ -54,7 +54,7 @@ function Login()
                 Log In
             </h3>
             <Form.Group controlId="formBasicEmail">
-                <Form.Control className="login-input" type="email" placeholder="username" ref={(c) => loginUserName = c}/>
+                <Form.Control className="login-input" type="name" placeholder="username" ref={(c) => loginUserName = c}/>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
                 <Form.Control className="login-input" type="password" placeholder="password" ref={(c) => loginPassword = c}/>

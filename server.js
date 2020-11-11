@@ -198,6 +198,82 @@ app.post('/api/verifyEmail', async (req, res, next) =>
     res.status(200).json(ret);
 });
 
+app.post('/api/ForgetPassword', async (req, res, next) =>
+ {
+     var error = '';
+     const {email} = req.body;
+
+     try
+     {
+      const db = client.db();
+      const result = await db.collection('Users').find({
+        Email: email.toLowerCase()
+      }).toArray();
+     console.log(result);
+      if (result.length > 0)
+      {
+        // using Twilio SendGrid's v3 Node.js Library
+        // https://github.com/sendgrid/sendgrid-nodejs
+        const sgMail = require('@sendgrid/mail')
+        sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+        const msg = {
+          to: email, // Change to your recipient
+          from: 'letscwhatyouknow@gmail.com', // Change to your verified sender
+          subject: 'Reset Your Password!',
+          text: 'and easy to do anywhere, even with Node.js',
+          html: '<a href="http://localhost:3000/ResetPassword/"<strong><button type="button">Click Me To Reset Password!</button></strong>',
+        }
+        sgMail
+          .send(msg)
+          .then(() => {
+            console.log('Email sent')
+          })
+          .catch((error) => {
+            console.error(error)
+          })
+      }
+      else
+      {
+        error="Incorrect Email";
+      }
+      
+     }catch(e)
+     {
+      error = e.toString();
+     }
+     var ret = { error: error };
+     res.status(200).json(ret);
+ });
+
+
+ app.post('/api/ResetPassword', async (req, res, next) =>
+ {
+     var error = '';
+ 
+     const { email, password } = req.body;
+     const db = client.db();
+     var hashedPass = hashPass.generate(password);
+     var query = 
+     { 
+         Email: email
+     };
+     
+    var newValues = 
+    {
+        $set:
+        {
+            Password : hashedPass
+        }
+    };
+
+    var result = await db.collection('Users').updateOne(query,newValues);
+    // console.log(query);
+    // console.log(newValues);
+    var ret = { error: error };
+    res.status(200).json(ret);
+
+    });
+
 app.post('/api/totalCorrect', async (req, res, next) =>
 {
     var error = '';

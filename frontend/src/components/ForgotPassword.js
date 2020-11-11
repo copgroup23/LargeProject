@@ -1,16 +1,40 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Form, Button} from 'react-bootstrap';
 
 function ForgotPassword()
 {
     var email;
-    // const [message,setMessage] = useState('');
-
-    const doForgotPassword = event => 
+    const [message,setMessage] = useState('');
+    
+    const doForgotPassword = async event => 
     {
-	    event.preventDefault();
-        alert("Email: "+email.value+", doForgotPassword() called");
+        event.preventDefault();
+        var obj = {email:email.value,};
+        var js = JSON.stringify(obj);
 
+        try
+        {    
+            const response = await fetch('http://localhost:5000/api/ForgetPassword',
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+
+            var res = JSON.parse(await response.text());
+            if( res.error === "" )
+            {
+                setMessage('Reset Password Link has been Emailed');
+                localStorage.setItem("TempEmail", email.value);
+                // console.log(localStorage.getItem("TempEmail"));
+
+            }
+            else
+            {
+                setMessage(res.error);
+            }
+        }
+        catch(e)
+        {
+            alert(e.toString());
+            return;
+        }    
     };    
 
 
@@ -25,7 +49,7 @@ function ForgotPassword()
             <Button size="lg" variant="primary" type="submit" onClick={doForgotPassword} block>
                 Done
             </Button>
-            {/* <span id="loginResult">{message}</span> */}
+            <span id="loginResult">{message}</span>
             <hr></hr>
             <div>
                 <a href="/">Back to Login</a>
