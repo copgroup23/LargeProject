@@ -31,7 +31,7 @@ function QuizCompleted()
     else if(total > 50 && total < 80) color = "rgb(211, 152, 43)";
     else if(total >= 80) color = "rgb(0, 180, 0)";
     
-
+    
     return(
       <div>
           <br></br>

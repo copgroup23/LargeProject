@@ -8,6 +8,8 @@ import d from '../images/d.png';
 var q_number = 0;
 var totalcorrect = 0;
 var choices = [];
+var correctAnswers = [];
+var questions = [];
 
 function Quiz()
 {
@@ -22,7 +24,7 @@ function Quiz()
     const [optionD, setOptionD] = useState("");
     const [message, setMessage] = useState("");
     const [number, setNumber] = useState("");
-
+    
 
     const doQuiz = event => 
     {
@@ -43,7 +45,10 @@ function Quiz()
     {
         event.preventDefault();
         choices.push(event.target.id);
+        correctAnswers.push(quests[q_number].CorrectAnswer);
+        questions.push(quests[q_number].Question);
         localStorage.setItem('choices', JSON.stringify(choices));
+        // localStorage.setItem('answers', JSON.stringify(correctAnswers));
         console.log(q_number);
         console.log(quests[q_number]);
         if(quests[q_number].CorrectAnswer === event.target.id)
@@ -54,15 +59,23 @@ function Quiz()
         if(q_number === 9)
         {
 
-            var obj = {level:quests[0].Difficulty,email:user.email,total:totalcorrect};
+            // var obj = {level:quests[0].Difficulty,email:user.email,total:totalcorrect};
+            // var js = JSON.stringify(obj);
+
+            var obj = {email:user.email,questions:questions,choices:choices,correct:correctAnswers,level:quests[0].Difficulty,score:totalcorrect};
             var js = JSON.stringify(obj);
-    
+            
             try {
-                const response = await fetch('http://localhost:5000/api/totalCorrect',
+                // const response = await fetch('http://localhost:5000/api/totalCorrect',
+                //     {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+    
+                // var res = JSON.parse(await response.text());
+
+                const response = await fetch('http://localhost:5000/api/makingHistory',
                     {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
     
                 var res = JSON.parse(await response.text());
-                console.log(res);
+                
                 if(res.error !== "")
                 {
                     setMessage("Unable to save total");

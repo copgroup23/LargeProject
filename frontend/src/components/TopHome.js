@@ -13,7 +13,31 @@ function TopHome()
         localStorage.removeItem("user_data")
         window.location.href = '/';
 
-    };    
+    };  
+    
+    const doHistory = async event => 
+    {
+	    event.preventDefault();
+
+
+        var obj = {email:user.email};
+        var js = JSON.stringify(obj);
+            
+        try {
+            const response = await fetch('http://localhost:5000/api/getHistory',
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+    
+            var res = JSON.parse(await response.text());
+            localStorage.setItem('history', JSON.stringify(res));
+                
+        }
+        catch(e) {
+            alert(e.toString());
+            return;
+        }
+        window.location.href = '/History';
+
+    }; 
 
 
     return(
@@ -32,17 +56,24 @@ function TopHome()
                 </Figure>
                 &nbsp;What You Know
             </Navbar.Brand>
+            {/* <div class="text-center">&nbsp;&nbsp;Hi, {user.firstName} {user.lastName}</div> */}
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <br></br>
-                    <Nav.Link class="col text-center" href="#profile">My Profile</Nav.Link>
+                    {/* <br></br> */}
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <Nav.Link class="col text-center" href="#link">Study Material</Nav.Link>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <Nav.Link class="col text-center" href="/home">Quizzes</Nav.Link>
-                    <Nav.Link class="col text-center" href="#link">Notes</Nav.Link>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <Nav.Link class="col text-center" onClick={doHistory}>History</Nav.Link>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <Nav.Link class="right" onClick={doLogout} className="red">Log Out</Nav.Link>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                 </Nav>
             </Navbar.Collapse>
             <div class="text-center">Hi, {user.firstName} {user.lastName}</div>
+            
             </Navbar>
             <br></br>
       </div>

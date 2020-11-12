@@ -138,7 +138,7 @@ app.post('/api/findQuestions', async (req, res, next) =>
           arr.push(rand);
           _ret.push(results[rand]);
         }
-        console.log(arr);
+        
       }
     }
     catch(e){
@@ -274,23 +274,60 @@ app.post('/api/ForgetPassword', async (req, res, next) =>
 
     });
 
-app.post('/api/totalCorrect', async (req, res, next) =>
+// app.post('/api/totalCorrect', async (req, res, next) =>
+// {
+//     var error = '';
+//     var d = new Date();
+//     const { level, email, total } = req.body;
+//     var result;
+
+//     const user = {
+//       Quiz: level, 
+//       Account: email,
+//       Score: total,
+//       Date: d
+//     }
+
+//     try {
+//       const db = client.db();
+//       result = await db.collection('History').insertOne(user);
+
+//     }
+//     catch(e) {
+//       error = e.toString();
+//     }
+
+//     var ret = {
+//         _id: result._id,
+//         Quiz: result.Quiz,
+//         Date: result.Date,
+//         Score: result.Score,
+//         error: ''
+//     };
+
+//     res.status(200).json(ret);
+// });
+
+app.post('/api/makingHistory', async (req, res, next) =>
 {
     var error = '';
     var d = new Date();
-    const { level, email, total } = req.body;
+    const { email, questions, choices, correct, level, score } = req.body;
     var result;
 
-    const user = {
-      Quiz: level, 
+    const user = { 
       Account: email,
-      Score: total,
+      Questions: questions,
+      Choices: choices,
+      CorrectAnswer: correct,
+      Difficulty: level,
+      Score: score,
       Date: d
     }
 
     try {
       const db = client.db();
-      result = await db.collection('History').insertOne(user);
+      result = await db.collection('Quiz').insertOne(user);
 
     }
     catch(e) {
@@ -298,15 +335,40 @@ app.post('/api/totalCorrect', async (req, res, next) =>
     }
 
     var ret = {
-        _id: result._id,
-        Quiz: result.Quiz,
-        Date: result.Date,
-        Score: result.Score,
         error: ''
     };
 
     res.status(200).json(ret);
 });
+
+app.post('/api/getHistory', async (req, res, next) =>
+{
+    var error = '';
+    const { email } = req.body;
+    var arr = [];
+    var results = [];
+    try{
+      const db = client.db();
+      results = await db.collection('Quiz').find({
+          Account: email
+      }).toArray();
+    
+    }
+    catch(e){
+      error=e.toString();
+    }
+    
+    var _ret = [];
+    var length = results.length;
+    _ret = {
+      history: results,
+      total: length,
+      error: error
+    }
+    console.log(_ret);
+    res.status(200).json(_ret);
+});
+
 
 app.use((req, res, next) => 
 {

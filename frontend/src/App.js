@@ -11,6 +11,7 @@ import VerifyEmailPage from './pages/VerifyEmailPage';
 import QuizPage from './pages/QuizPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import QuizCompletedPage from './pages/QuizCompletedPage';
+import HistoryPage from './pages/HistoryPage';
 
 function App() {
   return (
@@ -34,11 +35,14 @@ function App() {
       <Route path="/Quiz" exact>
         <QuizPage />
       </Route>
-        <Route path="/ResetPassword" exact>
+      <Route path="/ResetPassword" exact>
         <ResetPasswordPage />
       </Route>
-        <Route path="/QuizCompleted" exact>
+      <Route path="/QuizCompleted" exact>
         <QuizCompletedPage />
+      </Route>
+      <Route path="/History" exact>
+        <HistoryPage />
       </Route>
       <Redirect to="/" />
     </Switch>
