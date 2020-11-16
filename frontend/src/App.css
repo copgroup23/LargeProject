@@ -194,3 +194,23 @@ body {
 .blue {
   color: blue !important;
 }
+
+.button-size1 {
+  width: 300px !important;
+}
+
+.button-size2 {
+  width: 500px !important;
+}
+
+.button-size3 {
+  width: 700px !important;
+}
+
+.button-size4 {
+  width: 900px !important;
+}
+
+.button-size5 {
+  width: 1100px !important;
+}

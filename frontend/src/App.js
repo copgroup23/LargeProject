@@ -12,6 +12,7 @@ import QuizPage from './pages/QuizPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import QuizCompletedPage from './pages/QuizCompletedPage';
 import HistoryPage from './pages/HistoryPage';
+import ViewQuizPage from './pages/ViewQuizPage';
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
       </Route>
       <Route path="/History" exact>
         <HistoryPage />
+      </Route>
+      <Route path="/ViewQuiz" exact>
+        <ViewQuizPage />
       </Route>
       <Redirect to="/" />
     </Switch>

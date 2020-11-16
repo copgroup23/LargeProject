@@ -62,7 +62,7 @@ function Quiz()
             // var obj = {level:quests[0].Difficulty,email:user.email,total:totalcorrect};
             // var js = JSON.stringify(obj);
 
-            var obj = {email:user.email,questions:questions,choices:choices,correct:correctAnswers,level:quests[0].Difficulty,score:totalcorrect};
+            var obj = {email:user.email,questions:quests,choices:choices,correct:correctAnswers,level:quests[0].Difficulty,score:totalcorrect};
             var js = JSON.stringify(obj);
             
             try {
