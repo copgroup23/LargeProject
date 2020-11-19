@@ -49,7 +49,7 @@ function Home()
        <div className="col text-center">
            <br></br>
 
-           <Card>
+           <Card className="home-card">
                 <Card.Body>
                 <h3 className="col text-center">Quizzes</h3>
                 <br></br>

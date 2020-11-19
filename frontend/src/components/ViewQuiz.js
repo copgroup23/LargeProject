@@ -1,12 +1,84 @@
 import React, {useState} from 'react';
-import { Card, CardDeck } from 'react-bootstrap';
+import { Button, Card, CardDeck, Modal } from 'react-bootstrap';
 import { BsArrowLeft } from "react-icons/bs";
+import { BsTrash } from "react-icons/bs";
+
+var del_id = JSON.parse(localStorage.getItem('delete_id'));
+function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Delete History
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+           Are you sure you want to delete the history of this quiz attempt?
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+          <Button id={props.id} onClick={doDelete} variant="danger">Yes</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+
+  const doDelete = async event =>
+  {
+    event.preventDefault();
+    var obj = {_id:del_id};
+    console.log(del_id);
+    var js = JSON.stringify(obj);
+    
+    try {
+        const response = await fetch('http://localhost:5000/api/deleteQuiz',
+            {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+
+        var res = JSON.parse(await response.text());
+        if(res.error !== "")
+        {
+            console.log("error");
+        }
+
+        var user = JSON.parse(localStorage.getItem("user_data"));
+        var obj2 = {email:user.email};
+        var js2 = JSON.stringify(obj2);
+            
+        try {
+            const response = await fetch('http://localhost:5000/api/getHistory',
+                {method:'POST',body:js2,headers:{'Content-Type': 'application/json'}});
+    
+            var res = JSON.parse(await response.text());
+            localStorage.setItem('history', JSON.stringify(res));
+                
+        }
+        catch(e) {
+            alert(e.toString());
+            return;
+        }
+        window.location.href = '/History';
+            
+        
+            
+    }
+    catch(e) {
+        alert(e.toString());
+        return;
+    }
+  };
 
 function ViewQuiz()
 {
     var quests = JSON.parse(localStorage.getItem('viewquestions'));
     var choices = JSON.parse(localStorage.getItem('picked'));
-    console.log(quests);
+    
+    const [modalShow, setModalShow] = React.useState(false);
     var total = 0;
     var compare = [];
     var styles = [];
@@ -35,7 +107,7 @@ function ViewQuiz()
     return(
       <div>
           <br></br>
-          <a href="/history" className="col text-left"><BsArrowLeft></BsArrowLeft>Back to History</a>
+          
           <h3 className="col text-center" style={{color: color}}>Total: {total}/100</h3>
           <br></br>
           <br></br>
@@ -334,6 +406,22 @@ function ViewQuiz()
             </Card.Footer>
         </Card>
         </CardDeck>
+        <br></br>
+        {/* <Button>
+            <a href="/history" className="col text-left back"><BsArrowLeft></BsArrowLeft>Back to History</a>
+        </Button> */}
+        <Button href="/history" className="back">
+            <BsArrowLeft></BsArrowLeft>Back to History
+        </Button>
+        <Button variant="danger" className="back right2" onClick={(e) => setModalShow(true)}>
+            <BsTrash></BsTrash>
+        </Button>
+        <MyVerticallyCenteredModal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+        />
+        <br></br>
+        <br></br>
       </div>
    );
 };

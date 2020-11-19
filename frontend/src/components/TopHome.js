@@ -1,19 +1,47 @@
 import React from 'react';
-import {Navbar, Nav, Figure} from 'react-bootstrap';
+import {Navbar, Nav, Figure, Modal, Button} from 'react-bootstrap';
 import logo from '../images/clogo.png'
+
+
+function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Logout
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            Are you sure you want to log out?
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+          <Button onClick={doLogout} variant="danger">Yes</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+
+  const doLogout = event => 
+  {
+      event.preventDefault();
+
+      localStorage.removeItem("user_data")
+      window.location.href = '/';
+
+  };  
 
 function TopHome()
 {
     var user = JSON.parse(localStorage.getItem("user_data"));
-
-    const doLogout = event => 
-    {
-	    event.preventDefault();
-
-        localStorage.removeItem("user_data")
-        window.location.href = '/';
-
-    };  
+    const [modalShow, setModalShow] = React.useState(false);
+    
     
     const doHistory = async event => 
     {
@@ -68,13 +96,17 @@ function TopHome()
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <Nav.Link class="col text-center" onClick={doHistory}>History</Nav.Link>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <Nav.Link class="right" onClick={doLogout} className="red">Log Out</Nav.Link>
+                    <Nav.Link class="right" onClick={() => setModalShow(true)} className="red">Log Out</Nav.Link>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                 </Nav>
             </Navbar.Collapse>
-            <div class="text-center">Hi, {user.firstName} {user.lastName}</div>
+            <div className="text-center">Hi, {user.firstName} {user.lastName}</div>
             
             </Navbar>
+            <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
             <br></br>
       </div>
    );

@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const hashPass = require('password-hash');
-
+var ObjectId = require('mongodb').ObjectID;
 // const path = require("path");
 // const PORT = process.env.PORT || 5000;
 // require('dotenv').config();
@@ -369,6 +369,31 @@ app.post('/api/getHistory', async (req, res, next) =>
     res.status(200).json(_ret);
 });
 
+app.post('/api/deleteQuiz', async (req, res, next) => 
+{
+    var error = '';
+    const { _id } = req.body;
+
+    const db = client.db();
+
+    var query = 
+    { 
+      _id: ObjectId(_id)
+    };
+    
+    console.log(query);
+
+    var result = await db.collection('Quiz').deleteOne(query);
+  
+    var ret = 
+    {
+        result: result,
+        error: error
+    };
+
+    res.status(200).json(ret);
+
+});
 
 app.use((req, res, next) => 
 {
