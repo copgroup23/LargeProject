@@ -90,7 +90,7 @@ function TopHome()
                 <Nav className="mr-auto">
                     {/* <br></br> */}
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <Nav.Link class="col text-center" href="#link">Study Material</Nav.Link>
+                    <Nav.Link class="col text-center" href="/StudyMaterial">Study Material</Nav.Link>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <Nav.Link class="col text-center" href="/home">Quizzes</Nav.Link>
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -100,7 +100,7 @@ function TopHome()
                     &nbsp;&nbsp;&nbsp;&nbsp;
                 </Nav>
             </Navbar.Collapse>
-            <div className="text-center">Hi, {user.firstName} {user.lastName}</div>
+            {/* <div className="text-center">Hi, {user.firstName} {user.lastName}</div> */}
             
             </Navbar>
             <MyVerticallyCenteredModal

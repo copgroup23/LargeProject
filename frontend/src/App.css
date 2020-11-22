@@ -1,41 +1,4 @@
-/* .App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 
 body {
   background-image: linear-gradient(90deg,#a1d0ff, #dab6fc);
@@ -227,5 +190,42 @@ body {
 }
 
 .home-card {
-  background-image: linear-gradient(#cbe5ff,#eddaff,#cbe5ff);
+  background-image: linear-gradient(#d1e7fc,#f4e8ff,#d1e7fc);
+  /* background-color: white; */
 }
+
+/* .topics {
+  width: 400px !important;
+  left: 20px;
+  position: absolute !important;
+  position: fixed !important;
+}
+
+.resources {
+  width: 800px !important;
+  right: 20px;
+  position: absolute !important;
+}
+
+.study {
+  display: inline !important;
+} */
+
+.items {
+  width: 300px !important;
+}
+
+.black {
+  color: black !important;
+}
+
+.scroll {
+  background: white !important;
+  padding: 20px !important;
+}
+
+hr.rounded {
+  border-top: 4px solid rgb(216, 175, 255);
+  border-radius: 10px;
+}
+

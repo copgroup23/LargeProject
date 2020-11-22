@@ -107,7 +107,6 @@ function ViewQuiz()
     return(
       <div>
           <br></br>
-          
           <h3 className="col text-center" style={{color: color}}>Total: {total}/100</h3>
           <br></br>
           <br></br>

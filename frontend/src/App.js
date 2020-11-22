@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
@@ -13,6 +14,7 @@ import ResetPasswordPage from './pages/ResetPasswordPage';
 import QuizCompletedPage from './pages/QuizCompletedPage';
 import HistoryPage from './pages/HistoryPage';
 import ViewQuizPage from './pages/ViewQuizPage';
+import StudyMaterialPage from './pages/StudyMaterialPage';
 
 function App() {
   return (
@@ -47,6 +49,9 @@ function App() {
       </Route>
       <Route path="/ViewQuiz" exact>
         <ViewQuizPage />
+      </Route>
+      <Route path="/StudyMaterial" exact>
+        <StudyMaterialPage />
       </Route>
       <Redirect to="/" />
     </Switch>

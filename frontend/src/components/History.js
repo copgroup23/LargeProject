@@ -44,7 +44,7 @@ function History()
         cell.push(<td>{length-i}.</td>)
         cell.push(<td>Level {history.history[i].Difficulty}</td>)
         cell.push(<td>{history.history[i].Score}0/100</td>)
-        cell.push(<td>{history.history[i].Date}</td>)
+        // cell.push(<td>{history.history[i].Date}</td>)
         cell.push(<td>
             <Button id={i} variant="outline-primary" size="sm" onClick={doView}>
                 View
@@ -66,7 +66,7 @@ function History()
                         <th>#</th>
                         <th>Difficulty Level</th>
                         <th>Total Score</th>
-                        <th>Date</th>
+                        {/* <th>Date</th> */}
                         <th></th>
                         </tr>
                     </thead>
