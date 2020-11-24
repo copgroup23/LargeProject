@@ -21,20 +21,23 @@ function ForgotPassword()
             if( res.error === "" )
             {
                 setMessage('Reset Password Link has been Emailed');
-                localStorage.setItem("TempEmail", email.value);
+                // console.log(obj.email);
+                localStorage.setItem("TempEmail", obj.email);
                 // console.log(localStorage.getItem("TempEmail"));
 
             }
             else
             {
                 setMessage(res.error);
+                return;
             }
         }
         catch(e)
         {
             alert(e.toString());
             return;
-        }    
+        }   
+        
     };    
 
 
