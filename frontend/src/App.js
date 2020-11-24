@@ -15,6 +15,7 @@ import QuizCompletedPage from './pages/QuizCompletedPage';
 import HistoryPage from './pages/HistoryPage';
 import ViewQuizPage from './pages/ViewQuizPage';
 import StudyMaterialPage from './pages/StudyMaterialPage';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
   return (
@@ -52,6 +53,9 @@ function App() {
       </Route>
       <Route path="/StudyMaterial" exact>
         <StudyMaterialPage />
+      </Route>
+      <Route path="/Profile" exact>
+        <ProfilePage />
       </Route>
       <Redirect to="/" />
     </Switch>

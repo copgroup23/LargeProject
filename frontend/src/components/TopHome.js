@@ -96,6 +96,8 @@ function TopHome()
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <Nav.Link class="col text-center" onClick={doHistory}>History</Nav.Link>
                     &nbsp;&nbsp;&nbsp;&nbsp;
+                    <Nav.Link class="col text-center" href="/profile">Profile</Nav.Link>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <Nav.Link class="right" onClick={() => setModalShow(true)} className="red">Log Out</Nav.Link>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                 </Nav>

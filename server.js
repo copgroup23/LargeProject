@@ -36,6 +36,7 @@ app.post('/api/login', async (req, res, next) =>
     var ln = '';
     var email = '';
     var valid = false;
+    var usern = '';
 
     if (result.length > 0 && hashPass.verify(password, result[0].Password))
     {
@@ -43,12 +44,14 @@ app.post('/api/login', async (req, res, next) =>
         ln = result[0].LastName;
         email = result[0].Email;
         valid = result[0].Validated;
+        usern = result[0].UserName;
     }
 
     var ret = {
         firstName: fn,
         lastName: ln,
         Email: email,
+        UserName: usern,
         Validated: valid,
         error: ''
     };

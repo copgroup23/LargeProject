@@ -229,3 +229,6 @@ hr.rounded {
   border-radius: 10px;
 }
 
+.profile-card {
+  background-image: linear-gradient(#d1e7fc,#f4e8ff,#d1e7fc);
+}
