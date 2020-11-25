@@ -11,6 +11,38 @@ import varsyn from '../images/varsyn.PNG';
 import varsynex from '../images/varsynex.PNG';
 import cons from '../images/const.PNG';
 import cs from '../images/csyn.PNG';
+import op from '../images/op.PNG';
+import op2 from '../images/op2.PNG';
+import op3 from '../images/op3.PNG';
+import op4 from '../images/op4.PNG';
+import op5 from '../images/op5.PNG';
+import op6 from '../images/op6.PNG';
+import dec from '../images/dec.PNG';
+import ifs from '../images/ifs.PNG';
+import ifel from '../images/ifel.PNG';
+import ifelel from '../images/ifelel.PNG';
+import nest from '../images/nest.PNG';
+import sw from '../images/switch.PNG';
+import nsw from '../images/nsw.PNG';
+import loop from '../images/loop.PNG';
+import whsyn from '../images/wh.PNG';
+import dosyn from '../images/dosyn.PNG';
+import nff from '../images/nestfor.PNG';
+import nww from '../images/nestwh.PNG';
+import ndw from '../images/nestdw.PNG';
+// import op3 from '../images/op3.PNG';
+// import op4 from '../images/op4.PNG';
+// import op5 from '../images/op5.PNG';
+// import op6 from '../images/op6.PNG';
+// import dec from '../images/dec.PNG';
+// import ifs from '../images/ifs.PNG';
+// import ifel from '../images/ifel.PNG';
+// import ifelel from '../images/ifelel.PNG';
+// import nest from '../images/nest.PNG';
+// import sw from '../images/switch.PNG';
+// import nsw from '../images/nsw.PNG';
+// import loop from '../images/loop.PNG';
+// import whsyn from '../images/wh.PNG';
 
 function StudyMaterial()
 {
@@ -165,13 +197,225 @@ modified after their definition.</p>
             <br></br>
             <hr class="rounded"></hr>
             <h4 id="list-item-3">Operators</h4>
-            <p>...</p>
+            <p>&emsp;An operator is a symbol that tells the compiler to perform specific mathematical or logical
+manipulations. C language is rich in built-in operators and provides the following types of
+operators:
+<br></br>
+<ul>
+<li>Arithmetic Operators: Let variables A = 10 and B = 20 <div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={op}
+                />
+            </Figure></div></li>
+<li>Relational Operators: Let variables A = 10 and B = 20<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={op2}
+                />
+            </Figure></div></li>
+<li>Logical Operators: Let variables A = 1 and B = 0 <div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={op3}
+                />
+            </Figure></div></li>
+<li>Bitwise Operators: Let variables A = 60 and B = 13 <div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={op4}
+                />
+            </Figure></div></li>
+<li>Assignment Operators: These are following assignment operators supported by C language<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={op5}
+                />
+            </Figure></div></li>
+<li>Misc Operators:<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={op6}
+                />
+            </Figure></div></li>
+</ul></p>
+
             <hr class="rounded"></hr>
             <h4 id="list-item-4">Decision Making</h4>
-            <p>...</p>
+            <p>&emsp;Decision making structures require that the programmer specify one or more
+conditions to be evaluated or tested by the program, along with a statement or statements
+to be executed if the condition is determined to be true, and optionally, other statements to
+be executed if the condition is determined to be false.<br></br>
+&emsp;Following is the general form of a typical decision making structure found in most of the
+programming languages:
+</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={300}
+                height={400}
+                alt="<image>"
+                src={dec}
+                />
+            </Figure></div>
+            <h6>if Statement:</h6>
+            <p>An if statement consists of a boolean expression followed by one or more statements. Following is the syntax of an if-block:</p>
+            <div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={ifs}
+                />
+            </Figure></div>
+            <h6>if-else Statement:</h6>
+            <p>An if statement can be followed by an optional else statement, which executes when the
+boolean expression is false. Following is the syntax of an if-else block:</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={ifel}
+                />
+            </Figure></div>
+            <h6>The if...else if...else Statement:</h6>
+            <p>An if statement can be followed by an optional else if...else statement, which is very
+useful to test various conditions using single if...else if statement. Following is the syntax of an if...else if...else block:
+</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={ifelel}
+                />
+            </Figure></div>
+            <h6>Nested if statements:</h6>
+            <p>It is always legal in C programming to nest if-else statements, which means you can use
+one if or else if statement inside another if or else if statement(s). Following is the syntax:</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={nest}
+                />
+            </Figure></div>
+            <h6>switch Statement:</h6>
+            <p>A switch statement allows a variable to be tested for equality against a list of values. Each
+value is called a case, and the variable being switched on is checked for each switch case. Following is the syntax:</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={sw}
+                />
+            </Figure></div>
+            <h6>Nested switch statements:</h6>
+            <p>It is possible to have a switch as part of the statement sequence of an outer switch.
+Even if the case constants of the inner and outer switch contain common values, no
+conflicts will arise. Following is the syntax:</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={nsw}
+                />
+            </Figure></div>
             <hr class="rounded"></hr>
             <h4 id="list-item-5">Loops</h4>
-            <p>...</p>
+            <p>&emsp;There may be a situation, when you need to execute a block of code several number
+of times. In general, statements are executed sequentially: The first statement in a
+function is executed first, followed by the second, and so on.<br></br>
+&emsp;Programming languages provide various control structures that allow for more complicated
+execution paths.<br></br>
+&emsp;A loop statement allows us to execute a statement or group of statements multiple times
+and following is the general form of a loop statement in most of the programming
+languages
+</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={300}
+                height={400}
+                alt="<image>"
+                src={loop}
+                />
+            </Figure></div>
+            <h6>while loop in C:</h6>
+            <p>A while loop statement in C programming language repeatedly executes a target
+statement as long as a given condition is true. Syntax:
+</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={whsyn}
+                />
+            </Figure></div>
+            <h6>for loop in C:</h6>
+            <p>A for loop is a repetition control structure that allows you to efficiently write a loop that
+needs to execute a specific number of times.
+</p><br></br>
+            <h6>do...while loop in C:</h6>
+            <p>Unlike for and while loops, which test the loop condition at the top of the loop,
+the do...while loop in C programming language checks its condition at the bottom of the
+loop.<br></br>
+A do...while loop is similar to a while loop, except that a do...while loop is guaranteed to
+execute at least one time.</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={dosyn}
+                />
+            </Figure></div>
+            <h6>Nested Loops in C:</h6>
+            <p>C programming language allows to use one loop inside another loop. Following section
+shows few examples to illustrate the concept.</p>
+<p>The syntax for a nested for loop statement in C is as follows:</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={nff}
+                />
+            </Figure></div>
+            <p>The syntax for a nested while loop statement in C programming language is as follows:</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={nww}
+                />
+            </Figure></div>
+            <p>The syntax for a nested do...while loop statement in C programming language is as
+follows:</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={ndw}
+                />
+            </Figure></div>
             <hr class="rounded"></hr>
             <h4 id="list-item-6">Functions</h4>
             <p>...</p>
