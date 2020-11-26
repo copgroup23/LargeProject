@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-
 function Login()
 {
   var loginUserName;
@@ -24,11 +23,11 @@ function Login()
             var res = JSON.parse(await response.text());
             if( res.firstName === "" )
             {
-                setMessage('User/Password combination incorrect');
+                setMessage('Username/Password combination incorrect');
             }
             else if(!res.Validated)
             {
-                setMessage('Check your email for verifying account');
+                setMessage('Check your email to verify account');
             }
             else
             {
@@ -62,11 +61,13 @@ function Login()
             <Button size="lg" variant="primary" type="submit" onClick={doLogin} block>
                 Log in
             </Button>
+            <div className="col text-center">
             <span id="loginResult">{message}</span>
+            </div>
             <hr></hr>
-            <div>
-                <a href="/ForgotPassword">Forgot Password?</a>
-                <span className="divider"></span>
+            <div className="col text-center">
+                <a href="/ForgotPassword">Forgot Password?</a><br></br>
+                {/* <span className="divider"></span> */}
                 <a href="/SignUp" className="link">Create an account</a>
             </div>
         </Form>

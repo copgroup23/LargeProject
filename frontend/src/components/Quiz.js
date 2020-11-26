@@ -112,9 +112,10 @@ function Quiz()
     return(
       <div id="quiz-question" className="col text-center" onLoad={doQuiz}>
         <br></br>
-        <h4>Question {number} of 10</h4>
+        {/* <h4>Question {number} of 10</h4> */}
         <div className="center">
                     <Form className="quizform">
+                    <h4>Question {number} of 10</h4>
                     <div>
                         <span>{question}</span>
                     </div>

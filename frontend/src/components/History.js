@@ -1,7 +1,6 @@
 import React from 'react';
-import { Table, Card, Button, Modal } from 'react-bootstrap';
+import { Table, Card, Button, Modal, Pagination } from 'react-bootstrap';
 import { BsTrash } from "react-icons/bs";
-
 
 
 
@@ -28,7 +27,6 @@ function History()
         localStorage.setItem('viewquestions',JSON.stringify(view));
         var picked = history.history[event.target.id].Choices;
         localStorage.setItem('picked',JSON.stringify(picked));
-        console.log(picked);
         window.location.href = '/ViewQuiz';
     };
 
@@ -78,6 +76,7 @@ function History()
                 </Card.Footer> */}
                 
             </Card>
+            
 
         </div>
     );

@@ -48,6 +48,7 @@ function StudyMaterial()
 {
 
     return(
+        <html  id="top">
         <div>
             <br></br>
             <br></br>
@@ -108,6 +109,7 @@ value ranges and their precision:
                 src={float}
                 />
             </Figure></div>
+            <a href="#top">Jump to the top of page</a>
             <hr class="rounded"></hr>
             <h4 id="list-item-2">Variables, Contants, and Literals</h4>
             <br></br>
@@ -194,6 +196,7 @@ modified after their definition.</p>
                 src={cs}
                 />
             </Figure></div>
+            <a href="#top">Jump to the top of page</a>
             <br></br>
             <hr class="rounded"></hr>
             <h4 id="list-item-3">Operators</h4>
@@ -251,7 +254,8 @@ operators:
                 />
             </Figure></div></li>
 </ul></p>
-
+<a href="#top">Jump to the top of page</a>
+<br></br>
             <hr class="rounded"></hr>
             <h4 id="list-item-4">Decision Making</h4>
             <p>&emsp;Decision making structures require that the programmer specify one or more
@@ -336,6 +340,8 @@ conflicts will arise. Following is the syntax:</p>
                 src={nsw}
                 />
             </Figure></div>
+            <a href="#top">Jump to the top of page</a>
+            <br></br>
             <hr class="rounded"></hr>
             <h4 id="list-item-5">Loops</h4>
             <p>&emsp;There may be a situation, when you need to execute a block of code several number
@@ -416,27 +422,43 @@ follows:</p>
                 src={ndw}
                 />
             </Figure></div>
+            <a href="#top">Jump to the top of page</a>
+            <br></br>
             <hr class="rounded"></hr>
             <h4 id="list-item-6">Functions</h4>
             <p>...</p>
+            <a href="#top">Jump to the top of page</a>
+            <br></br>
             <hr class="rounded"></hr>
             <h4 id="list-item-7">Arrays</h4>
             <p>...</p>
+            <a href="#top">Jump to the top of page</a>
+            <br></br>
             <hr class="rounded"></hr>
             <h4 id="list-item-8">Pointers</h4>
             <p>...</p>
+            <a href="#top">Jump to the top of page</a>
+            <br></br>
             <hr class="rounded"></hr>
             <h4 id="list-item-9">Structures</h4>
             <p>...</p>
+            <a href="#top">Jump to the top of page</a>
+            <br></br>
             <hr class="rounded"></hr>
             <h4 id="list-item-10">Input/Output and File Handling</h4>
             <p>...</p>
+            <a href="#top">Jump to the top of page</a>
+            <br></br>
             <hr class="rounded"></hr>
             <h4 id="list-item-11">Recursion</h4>
             <p>...</p>
+            <a href="#top">Jump to the top of page</a>
+            <br></br>
             <hr class="rounded"></hr>
             </div>
+            
         </div>
+        </html>
     );
 };
 

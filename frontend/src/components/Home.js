@@ -48,10 +48,15 @@ function Home()
     return(
        <div className="col text-center">
            <br></br>
-
            <Card className="home-card">
                 <Card.Body>
                 <h3 className="col text-center">Quizzes</h3>
+                <br></br>
+                <div><b>Note: </b>The level of difficulty of the quiz is given by
+                the level number with 1 being the easiest and 5 the hardest.
+                Quiz will begin after the start button is clicked.
+                <br></br>Keep in mind, the selected answer for each question will
+                be recorded and cannot be changed unless you decide to leave the quiz midway which will reset the score.</div>
                 <br></br>
                 <span id="questionSearch">{message}</span>
                 <div className="col text-center">

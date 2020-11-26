@@ -7,7 +7,7 @@ function AlertDismissibleExample(props) {
       return (
         <Alert {...props} variant="danger" >
           <p>
-            Passwords don't match / Fill out all fields
+            Passwords don't match
           </p>
         </Alert>
       );

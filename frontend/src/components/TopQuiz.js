@@ -21,13 +21,13 @@ function TopQuiz()
                 </Figure>
                 &nbsp;What You Know
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+            {/* <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     <br></br>
                 </Nav>
-            </Navbar.Collapse>
-            <Nav.Link class="text-right red" href="/home">Leave Quiz</Nav.Link>
+            </Navbar.Collapse> */}
+            <Nav.Link className="col text-right red" href="/home">Leave Quiz</Nav.Link>
             
             </Navbar>
             <br></br>

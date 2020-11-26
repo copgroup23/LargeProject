@@ -23,15 +23,15 @@ function VerifyEmail()
             console.log(res);
             if( res.firstName === "" )
             {
-                setMessage('User/Password combination incorrect');
+                setMessage('Username/Password combination incorrect');
             }
             else
             {
                 var user = {firstName:res.firstName,lastName:res.lastName,id:res.id}
                 localStorage.setItem('user_data', JSON.stringify(user));
                 
-                setMessage('');
-                window.location.href = '/home';
+                setMessage('Your email has been verified!');
+                // window.location.href = '/home';
             }
         }
         catch(e)
@@ -58,8 +58,12 @@ function VerifyEmail()
             <Button size="lg" variant="primary" type="submit" onClick={doVerifyEmail} block>
                 Verify
             </Button>
-            <span id="loginResult">{message}</span>
+            
             <hr></hr>
+            <div className="col text-center">
+            <span id="loginResult">{message}</span>
+            </div>
+            
         </Form>
     </div>
    );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Figure } from 'react-bootstrap';
-import logo from '../images/clogo.png'
+import logo from '../images/clogo.png';
 
 function PageTitle()
 {

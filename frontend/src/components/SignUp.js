@@ -90,7 +90,9 @@ function SignUp()
             <Button size="lg" variant="primary" type="submit" onClick={doSignUp} block>
                 Sign Up
             </Button>
+            <div className="col text-center">
             <span id="loginResult">{message}</span>
+            </div>
             <hr></hr>
             <div>
                 <a href="/">Back to Login</a>
