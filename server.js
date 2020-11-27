@@ -398,6 +398,32 @@ app.post('/api/deleteQuiz', async (req, res, next) =>
 
 });
 
+app.post('/api/deleteUser', async (req, res, next) => 
+{
+    var error = '';
+    const { email } = req.body;
+
+    const db = client.db();
+
+    var query = 
+    { 
+      Email: email
+    };
+    
+    console.log(query);
+
+    var result = await db.collection('Users').deleteOne(query);
+  
+    var ret = 
+    {
+        result: result,
+        error: error
+    };
+
+    res.status(200).json(ret);
+
+});
+
 app.use((req, res, next) => 
 {
   res.setHeader('Access-Control-Allow-Origin', '*');

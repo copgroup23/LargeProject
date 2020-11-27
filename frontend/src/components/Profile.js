@@ -84,8 +84,34 @@ function Profile()
     const [modalShow, setModalShow] = React.useState(false);
     const [show, setShow] = useState(false);
     // const [message, setMessage] = React.useState('');
-    console.log(user_data);
+    // console.log(user_data);
     
+    const doDelete = async event =>
+    {
+      event.preventDefault();
+      
+      var obj = {email:user_data.email};
+        var js = JSON.stringify(obj);
+
+        try {
+            const response = await fetch('http://localhost:5000/api/deleteUser',
+                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+
+            var res = JSON.parse(await response.text());
+
+
+            // localStorage.setItem('questions', JSON.stringify(res));
+            // localStorage.setItem('current', JSON.stringify(0));
+            
+            window.location.href = '/';
+            
+        }
+        catch(e) {
+            alert(e.toString());
+            return;
+        }
+
+    };
 
     return(
     
@@ -105,7 +131,7 @@ function Profile()
         <br></br>
         <br></br>
         <Button variant="primary" onClick={() => setModalShow(true)}>Update Password</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <Button variant="danger">Delete Account</Button>
+        <Button variant="danger" onClick={doDelete}>Delete Account</Button>
         
         <MyVerticallyCenteredModal
         show={modalShow}
