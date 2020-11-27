@@ -409,14 +409,19 @@ app.post('/api/deleteUser', async (req, res, next) =>
     { 
       Email: email
     };
-    
-    console.log(query);
+    var query2 =
+    {
+      Account: email
+    };
+
 
     var result = await db.collection('Users').deleteOne(query);
-  
+    var result2 = await db.collection('Quiz').deleteMany(query2);
+
     var ret = 
     {
         result: result,
+        result2: result2,
         error: error
     };
 

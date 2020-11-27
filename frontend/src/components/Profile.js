@@ -14,7 +14,31 @@ function AlertDismissibleExample(props) {
     
   }
 
-
+  function MyVerticallyCenteredModal2(props) {
+    return (
+      <Modal
+        {...props}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Delete Account
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            Are you sure you want to delete your account? Once done, quiz records cannot be restored.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+          <Button variant="danger" onClick={doDelete}>Delete</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+  
 var user_data = JSON.parse(localStorage.getItem('user_data'));
 
 function MyVerticallyCenteredModal(props) {
@@ -78,15 +102,8 @@ function MyVerticallyCenteredModal(props) {
       
   };
 
-function Profile()
-{
-    
-    const [modalShow, setModalShow] = React.useState(false);
-    const [show, setShow] = useState(false);
-    // const [message, setMessage] = React.useState('');
-    // console.log(user_data);
-    
-    const doDelete = async event =>
+
+  const doDelete = async event =>
     {
       event.preventDefault();
       
@@ -113,6 +130,16 @@ function Profile()
 
     };
 
+function Profile()
+{
+    
+    const [modalShow, setModalShow] = React.useState(false);
+    const [modalShow2, setModalShow2] = React.useState(false);
+    const [show, setShow] = useState(false);
+    // const [message, setMessage] = React.useState('');
+    // console.log(user_data);
+    
+
     return(
     
         <div className="col text-center">
@@ -131,14 +158,21 @@ function Profile()
         <br></br>
         <br></br>
         <Button variant="primary" onClick={() => setModalShow(true)}>Update Password</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <Button variant="danger" onClick={doDelete}>Delete Account</Button>
+        <Button variant="danger" onClick={() => setModalShow2(true)}>Delete Account</Button>
         
+        <MyVerticallyCenteredModal2
+        show={modalShow2}
+        onHide={() => setModalShow2(false)}
+      />
+
         <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => {setModalShow(false); setShow(false)}}
         alert={show}
         alertfunc={setShow}
         />
+
+        
         
         </div>
    );
