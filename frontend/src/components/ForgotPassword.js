@@ -52,7 +52,10 @@ function ForgotPassword()
             <Button size="lg" variant="primary" type="submit" onClick={doForgotPassword} block>
                 Done
             </Button>
+            <br></br>
+            <div className="col text-center">
             <span id="loginResult">{message}</span>
+            </div>
             <hr></hr>
             <div>
                 <a href="/">Back to Login</a>

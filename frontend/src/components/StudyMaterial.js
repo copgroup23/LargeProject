@@ -48,10 +48,10 @@ import str from '../images/str.PNG';
 import strex from '../images/strex.PNG';
 import strexo from '../images/strexo.PNG';
 import inout from '../images/inout.PNG';
-// import op6 from '../images/op6.PNG';
-// import dec from '../images/dec.PNG';
-// import ifs from '../images/ifs.PNG';
-// import ifel from '../images/ifel.PNG';
+import gchar from '../images/gchar.PNG';
+import gcharo from '../images/gcharo.PNG';
+import pchar from '../images/pchar.PNG';
+import scan from '../images/scan.PNG';
 // import ifelel from '../images/ifelel.PNG';
 // import nest from '../images/nest.PNG';
 // import sw from '../images/switch.PNG';
@@ -96,8 +96,7 @@ function StudyMaterial()
             <a className="list-group-item list-group-item-action black" href="#list-item-7"><b>Arrays</b></a>
             <a className="list-group-item list-group-item-action black" href="#list-item-8"><b>Pointers</b></a>
             <a className="list-group-item list-group-item-action black" href="#list-item-9"><b>Structures</b></a>
-            <a className="list-group-item list-group-item-action black" href="#list-item-10"><b>Input/Output and File Handling</b></a>
-            <a className="list-group-item list-group-item-action black" href="#list-item-11"><b>Recursion</b></a>
+            <a className="list-group-item list-group-item-action black" href="#list-item-10"><b>Input and Output</b></a>
             </div>
             <br></br>
             <div data-spy="scroll" data-target="#list-example" data-offset="0" className="scroll">
@@ -696,7 +695,7 @@ variables of structure type. Following is the example to explain usage of struct
             <a href="#top">Jump to the top of page</a>
             <br></br>
             <hr class="rounded"></hr>
-            <h4 id="list-item-10">Input/Output and File Handling</h4>
+            <h4 id="list-item-10">Input and Output</h4>
             <p>&emsp;When we are saying Input that means to feed some data into program. This can
 be given in the form of file or from command line. C programming language provides a set
 of built-in functions to read given input and feed it to the program as per requirement.
@@ -714,13 +713,81 @@ a program executes to provide access to the keyboard and screen.</p>
                 src={inout}
                 />
             </Figure></div>
+            <h6>The getchar() & putchar() functions:</h6>
+            <p>The int getchar(void) function reads the next available character from the screen and
+returns it as an integer. This function reads only single character at a time. You can use
+this method in the loop in case you want to read more than one characters from the
+screen.<br></br><br></br>
+The int putchar(int c) function puts the passed character on the screen and returns the
+same character. This function puts only single character at a time. You can use this method
+in the loop in case you want to display more than one character on the screen. Check the
+following example:</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={gchar}
+                />
+            </Figure></div>
+            <p>When the above code is compiled and executed, it waits for you to input some text when
+you enter a text and press enter then program proceeds and reads only a single character
+and displays it as follows:</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={gcharo}
+                />
+            </Figure></div>
+            <h6>The gets() & puts() functions:</h6>
+            <p>The char *gets(char *s) function reads a line from stdin into the buffer pointed to
+by s until either a terminating newline or EOF.The int puts(const char *s) function writes the string s and a trailing newline to stdout.</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={pchar}
+                />
+            </Figure></div>
+            <p>When the above code is compiled and executed, it waits for you to input some text when
+you enter a text and press enter then program proceeds and reads the complete line till
+end and displays it as follows:
+</p>
+<p>$./a.out<br></br>
+Enter a value : this is test<br></br>
+You entered: This is test</p><br></br>
+            <h6>The scanf() and printf() functions:</h6>
+            <p>The int scanf(const char *format, ...) function reads input from the standard input
+stream stdin and scans that input according to format provided.
+<br></br><br></br>The int printf(const char *format, ...) function writes output to the standard output
+stream stdout and produces output according to a format provided.<br></br><br></br>
+The format can be a simple constant string, but you can specify %s, %d, %c, %f, etc., to
+print or read strings, integer, character or float respectively. There are many other
+formatting options available which can be used based on requirements. For a complete
+detail you can refer to a man page for these function. For now let us proceed with a simple
+example which makes things clear:
+</p>
+<div className="col text-center"><Figure>
+                <Figure.Image
+                width={600}
+                height={800}
+                alt="<image>"
+                src={scan}
+                />
+            </Figure></div>
+            <p>When the above code is compiled and executed, it waits for you to input some text when
+you enter a text and press enter then program proceeds and reads the input and displays it
+as follows:</p>
+            <p>$./a.out<br></br>
+Enter a value : seven 7<br></br>
+You entered: seven 7
+</p>
             <a href="#top">Jump to the top of page</a>
             <br></br>
-            <hr class="rounded"></hr>
-            <h4 id="list-item-11">Recursion</h4>
-            <p>...</p>
-            <a href="#top">Jump to the top of page</a>
-            <br></br>
+            
             <hr class="rounded"></hr>
             </div>
             
@@ -730,21 +797,5 @@ a program executes to provide access to the keyboard and screen.</p>
 };
 
 
-
-// Scrollspy.propTypes = {
-//     names: Array<string | null>,
-//     homeIndex?: number,
-//     topOffset?: string | number,
-//     bottomOffset?: string | number,
-//     delayMs?: number,
-//     children: ChildrenArray<any>,
-//   }
-
-// Scrollspy.defaultProps = {
-//     homeIndex: 0,
-//     topOffset: '50%',
-//     bottomOffset: '40%',
-//     delayMs: 50,
-//   }
 
 export default StudyMaterial;

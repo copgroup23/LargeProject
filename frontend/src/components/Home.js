@@ -70,14 +70,14 @@ function Home()
                 </Button>
                 <Collapse in={open1}>
                     <div id="example-collapse-text" className="quizcollapse">
-                    **Level 1 description**
-                    <br></br>
+                    
                     <br></br>
                     <div className="col text-center">
                         <Button id="1" className="startButton" onClick={doHome}>
-                            Start
+                            Start Level 1 Quiz
                         </Button>
                     </div>
+                    <br></br>
                     </div> 
                 </Collapse>
                 </div>
@@ -93,14 +93,15 @@ function Home()
                 </Button>
                 <Collapse in={open2}>
                     <div id="example-collapse-text" className="quizcollapse">
-                    **Level 2 description**
-                    <br></br>
+                    
                     <br></br>
                     <div className="col text-center">
                         <Button id="2" className="startButton" onClick={doHome}>
-                            Start
+                            Start Level 2 Quiz
                         </Button>
+                        
                     </div>
+                    <br></br>
                     </div>
                 </Collapse>
                 </div>
@@ -116,14 +117,13 @@ function Home()
                 </Button>
                 <Collapse in={open3}>
                     <div id="example-collapse-text" className="quizcollapse">
-                    **Level 3 description**
-                    <br></br>
                     <br></br>
                     <div className="col text-center">
                         <Button id="3" className="startButton" onClick={doHome}>
-                            Start
+                            Start Level 3 Quiz
                         </Button>
                     </div>
+                    <br></br>
                     </div>
                 </Collapse>
                 </div>
@@ -139,14 +139,14 @@ function Home()
                 </Button>
                 <Collapse in={open4}>
                     <div id="example-collapse-text" className="quizcollapse">
-                    **Level 4 description**
-                    <br></br>
+                    
                     <br></br>
                     <div className="col text-center">
                         <Button id="4" className="startButton" onClick={doHome}>
-                            Start
+                            Start Level 4 Quiz
                         </Button>
                     </div>
+                    <br></br>
                     </div>
                 </Collapse>
                 </div>
@@ -162,14 +162,14 @@ function Home()
                 </Button>
                 <Collapse in={open5}>
                     <div id="example-collapse-text" className="quizcollapse">
-                    **Level 5 description**
-                    <br></br>
+                   
                     <br></br>
                     <div className="col text-center">
                         <Button id="5" className="startButton" onClick={doHome}>
-                            Start
+                            Start Level 5 Quiz
                         </Button>
                     </div>
+                    <br></br>
                     </div>
                 </Collapse>
                 <br></br>
