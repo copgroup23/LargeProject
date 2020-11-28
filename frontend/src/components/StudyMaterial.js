@@ -52,29 +52,6 @@ import gchar from '../images/gchar.PNG';
 import gcharo from '../images/gcharo.PNG';
 import pchar from '../images/pchar.PNG';
 import scan from '../images/scan.PNG';
-// import ifelel from '../images/ifelel.PNG';
-// import nest from '../images/nest.PNG';
-// import sw from '../images/switch.PNG';
-// import nsw from '../images/nsw.PNG';
-// import loop from '../images/loop.PNG';
-// import whsyn from '../images/wh.PNG';
-// import dosyn from '../images/dosyn.PNG';
-// import nff from '../images/nestfor.PNG';
-// import nww from '../images/nestwh.PNG';
-// import ndw from '../images/nestdw.PNG';
-// import func from '../images/func.PNG';
-// import funcex from '../images/funcex.PNG';
-// import fout from '../images/funcout.PNG';
-// import arrr from '../images/arrr.PNG';
-// import decar from '../images/decar.PNG';
-// import arrex from '../images/arrex.PNG';
-// import marr from '../images/multarr.PNG';
-// import arf from '../images/arrfun.PNG';
-// import point from '../images/point.PNG';
-// import pout from '../images/pout.PNG';
-// import psyn from '../images/psyn.PNG';
-// import pt from '../images/ptypes.PNG';
-// import poex from '../images/poex.PNG';
 
 function StudyMaterial()
 {
@@ -87,6 +64,7 @@ function StudyMaterial()
             <h3 className="col text-center">Introduction  to C Programming</h3>
             <br></br>
             <div id="list-example items" className="col text-center" >
+            <a className="list-group-item listTitle"><b>Table of Content</b></a>
             <a className="list-group-item list-group-item-action black" href="#list-item-1"><b>Data Types</b></a>
             <a className="list-group-item list-group-item-action black" href="#list-item-2"><b>Variables, Constants, and Literals</b></a>
             <a className="list-group-item list-group-item-action black" href="#list-item-3"><b>Operators</b></a>
@@ -97,6 +75,7 @@ function StudyMaterial()
             <a className="list-group-item list-group-item-action black" href="#list-item-8"><b>Pointers</b></a>
             <a className="list-group-item list-group-item-action black" href="#list-item-9"><b>Structures</b></a>
             <a className="list-group-item list-group-item-action black" href="#list-item-10"><b>Input and Output</b></a>
+        
             </div>
             <br></br>
             <div data-spy="scroll" data-target="#list-example" data-offset="0" className="scroll">
@@ -788,6 +767,9 @@ You entered: seven 7
             <a href="#top">Jump to the top of page</a>
             <br></br>
             
+            <hr class="rounded"></hr>
+            <h4 id="list-item-11">Resource(s):</h4>
+            <div>&emsp;In-depth Notes: <a href="https://www.unf.edu/~wkloster/2220/ppts/cprogramming_tutorial.pdf">C Programming Tutorial</a></div>
             <hr class="rounded"></hr>
             </div>
             

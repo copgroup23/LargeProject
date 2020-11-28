@@ -77,6 +77,7 @@ function ViewQuiz()
 {
     var quests = JSON.parse(localStorage.getItem('viewquestions'));
     var choices = JSON.parse(localStorage.getItem('picked'));
+    var date = JSON.parse(localStorage.getItem('dateQuiz'));
     
     const [modalShow, setModalShow] = React.useState(false);
     var total = 0;

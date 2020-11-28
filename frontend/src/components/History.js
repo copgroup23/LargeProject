@@ -27,6 +27,8 @@ function History()
         localStorage.setItem('viewquestions',JSON.stringify(view));
         var picked = history.history[event.target.id].Choices;
         localStorage.setItem('picked',JSON.stringify(picked));
+        var date = history.history[event.target.id].Date;
+        localStorage.setItem('dateQuiz',JSON.stringify(date));
         window.location.href = '/ViewQuiz';
     };
 

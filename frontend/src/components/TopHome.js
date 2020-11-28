@@ -71,7 +71,7 @@ function TopHome()
     return(
       <div>
           <Navbar bg="light" expand="lg" className="topHomeTitle">
-            <Navbar.Brand href="#home" className="topHomeTitle">
+            <Navbar.Brand href="#home" className="topHomeTitle titleFont">
                 Let's&nbsp;  
                 <Figure className="imageAlign">
                     <Figure.Image

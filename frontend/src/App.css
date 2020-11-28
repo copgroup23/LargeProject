@@ -87,6 +87,11 @@ body {
   padding-bottom: 0rem !important;
 }
 
+.titleFont {
+  font-weight: 500 !important;
+  font-variant: small-caps;
+}
+
 .moveLogoTitle {
   margin-bottom: 0rem !important;
 }
@@ -225,6 +230,12 @@ body {
   padding: 30px !important;
 }
 
+.listTitle {
+  background-image: linear-gradient(90deg,#d1e7fc,#f4e8ff,#d1e7fc) !important;
+  font-size: 20px;
+}
+
+
 hr.rounded {
   border-top: 4px solid rgb(216, 175, 255);
   border-radius: 10px;
@@ -242,4 +253,8 @@ hr.rounded {
 html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   scroll-behavior: smooth !important;
+}
+
+.lala {
+  white-space: pre-line;
 }

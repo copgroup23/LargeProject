@@ -17,6 +17,8 @@ function Quiz()
     
     var quests = JSON.parse(localStorage.getItem('questions'));
     var user = JSON.parse(localStorage.getItem('user_data'));
+    
+
     const [question, setQuestion] = useState("");
     const [optionA, setOptionA] = useState("");
     const [optionB, setOptionB] = useState("");
@@ -32,6 +34,7 @@ function Quiz()
         // console.log(event.target.id);
         // alert("doQuiz() called");
         
+
         setQuestion(quests[q_number].Question);
         setOptionA(quests[q_number].A);
         setOptionB(quests[q_number].B);
@@ -117,7 +120,7 @@ function Quiz()
                     <Form className="quizform">
                     <h4>Question {number} of 10</h4>
                     <div>
-                        <span>{question}</span>
+                        <span className="lala">{question}</span>
                     </div>
                     <br></br>
                     <div className="option">
